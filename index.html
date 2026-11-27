@@ -14,7 +14,11 @@ h2{margin:0 0 10px;font-size:19px}
 .num{font-size:28px;font-weight:800;text-align:center;color:#0f766e;background:#e6f3f1;border-radius:12px;padding:12px;letter-spacing:1px;direction:ltr}
 button{width:100%;min-height:48px;border:1px solid #0f766e;background:#fff;color:#0f766e;border-radius:12px;font:inherit;font-weight:600;margin-top:10px}
 small{color:#5a6b68;display:block;margin-top:8px}
-.f label{display:block;font-weight:700;margin-top:12px}.f select,.f textarea{width:100%;font:inherit;padding:10px;border:1px solid #b7c6c3;border-radius:10px;background:#fff;margin-top:4px}.f textarea{min-height:96px}.f .btn{border:0;width:100%;cursor:pointer;color:#fff}
+.f label{display:block;font-weight:700;margin-top:12px}.f select,.f textarea{width:100%;font:inherit;padding:10px;border:1px solid #b7c6c3;border-radius:10px;background:#fff;margin-top:4px}.f textarea{min-height:96px}.f .btn{border:0;width:100%;cursor:pointer;color:#fff}.btn.mail{background:#0f766e;margin-top:10px}
+.q{border:1px solid #d8e4e1;border-radius:12px;padding:2px 12px;margin-top:8px;background:#fbfdfd}
+.q summary{font-weight:700;cursor:pointer;color:#0f5b54;padding:8px 0}
+.q p{margin:0 0 10px;font-size:15px}
+.tips{list-style:none;padding:0;margin:0}.tips li{background:#f4f7f6;border-radius:12px;padding:10px 12px;margin-top:8px;font-size:15px}
 </style></head><body>
 <header><h1>Fix It</h1><p>ماكينة واقفة؟ حاجة في البيت بايظة؟ صوّر العطل وابعته</p></header>
 <div class="w">
@@ -23,11 +27,32 @@ small{color:#5a6b68;display:block;margin-top:8px}
 <label for="g">المحافظة</label><select id="g"><option value="">اختار...</option><option>القاهرة</option><option>الجيزة</option><option>الإسكندرية</option><option>القليوبية</option><option>الشرقية</option><option>الدقهلية</option><option>الغربية</option><option>المنوفية</option><option>البحيرة</option><option>كفر الشيخ</option><option>دمياط</option><option>بورسعيد</option><option>الإسماعيلية</option><option>السويس</option><option>الفيوم</option><option>بني سويف</option><option>المنيا</option><option>أسيوط</option><option>سوهاج</option><option>قنا</option><option>الأقصر</option><option>أسوان</option><option>البحر الأحمر</option><option>الوادي الجديد</option><option>مطروح</option><option>شمال سيناء</option><option>جنوب سيناء</option><option>أخرى</option></select>
 <label for="d">وصف العطل</label><textarea id="d" placeholder="إيه اللي بيحصل؟ من امتى؟ في صوت أو ريحة أو تسريب؟"></textarea>
 <button type="button" class="btn" id="s">ابعت على واتساب</button>
-<small id="m">اختار التصنيف والمحافظة واكتب وصف العطل. بعد ما واتساب يفتح، أرفق الصورة أو الفيديو واضغط إرسال. الاستشارة الفنية المبدئية مجانية.</small></div>
-<script>document.getElementById('s').onclick=function(){var c=document.getElementById('c').value,g=document.getElementById('g').value,d=document.getElementById('d').value.trim();if(!c||!g||!d){document.getElementById('m').textContent='من فضلك املأ التصنيف والمحافظة ووصف العطل.';return}var t='أهلاً Fix It\nتصنيف العطل: '+c+'\nالمحافظة: '+g+'\nوصف العطل: '+d;location.href='https://wa.me/201120509006?text='+encodeURIComponent(t)}</script>
+<button type="button" class="btn mail" id="e">✉️ ابعت بالإيميل</button>
+<small id="m">اختار التصنيف والمحافظة واكتب وصف العطل. بعد ما واتساب أو الإيميل يفتح، أرفق الصورة أو الفيديو واضغط إرسال. الاستشارة الفنية المبدئية مجانية.</small></div>
+<script>function chk(){var c=document.getElementById('c').value,g=document.getElementById('g').value,d=document.getElementById('d').value.trim();if(!c||!g||!d){document.getElementById('m').textContent='من فضلك املأ التصنيف والمحافظة ووصف العطل.';return null}return{c:c,g:g,d:d}}
+document.getElementById('s').onclick=function(){var v=chk();if(!v)return;var t='أهلاً Fix It\nتصنيف العطل: '+v.c+'\nالمحافظة: '+v.g+'\nوصف العطل: '+v.d;location.href='https://wa.me/201120509006?text='+encodeURIComponent(t)}
+document.getElementById('e').onclick=function(){var v=chk();if(!v)return;var t='أهلاً Fix It\nتصنيف العطل: '+v.c+'\nالمحافظة: '+v.g+'\nوصف العطل: '+v.d+'\n\n(أرفق صورة أو فيديو للعطل مع الإيميل)';location.href='mailto:Ah.gamal504@gmail.com?subject='+encodeURIComponent('عطل جديد - Fix It: '+v.c)+'&body='+encodeURIComponent(t)}</script>
+<div class="card"><h2>مشكلتك ليها رد جاهز؟</h2>
+<p style="margin:0">دي أكتر الأعطال اللي بتتكرر وإجابتها المدروسة. دوس على مشكلتك والرد هيظهر فوراً:</p>
+<details class="q"><summary>الموتور بيسخن وبيفصل</summary><p>الأسباب الغالبة: تحميل زيادة، تهوية مسدودة، جهد كهربا ناقص، أو رولمان بلي بايظ. قلل الحمل وجرب، نظّف فتحات التهوية وفلتر الهوا، وقيس الجهد وقت التشغيل. لو في صوت خرخرة مع السخونية فغالباً البلي محتاج تغيير، وده شغل فني.</p></details>
+<details class="q"><summary>اهتزاز واضح في الماكينة</summary><p>غالباً اتزان السير والبكرات، قاعدة مرتخية، أو بلي. شد مسامير القاعدة، وبص على السير: يكون مشدود مظبوط ومفيهوش تشققات. لو في خبطة بتتكرر مع كل لفة فده غالباً رولمان بلي. الاهتزاز المستمر بياكل البلي والسيور، متسيبهوش.</p></details>
+<details class="q"><summary>السخان مش بيسخن</summary><p>الكهربا: اتأكد إن القاطع مرفوع، وجرب زرار الأمان لو موجود. الغاز: اتأكد إن الشعلة بتولع والحساس نضيف. لو في تنقيط مية من جسم السخان افصله فوراً، ده محتاج فني.</p></details>
+<details class="q"><summary>التكييف مش بيبرد</summary><p>أول حاجة نظّف الفلتر، أغلب الشكاوى بتتحل كده. اتأكد إن الوحدة الخارجية شغالة والمروحة بتلف. لو في تلج على المواسير افصل واستنى لما يفك. لو لسه مش بيبرد فغالباً نقص فريون من تسريب، وده محتاج فني يكشف التسريب ويظبط الشحنة.</p></details>
+<details class="q"><summary>الغسالة مش بتصرف أو واقفة نص البرنامج</summary><p>نظّف فلتر مضخة الصرف (مكانه تحت قدام في أغلب الغسالات)، واتأكد إن خرطوم الصرف مش مثني ولا مرفوع زيادة عن اللازم. لو الفلتر نضيف ولسه مفيش صرف، أو صوت الطلمبة عالي، يبقى محتاجة فني.</p></details>
+<details class="q"><summary>قاطع الكهربا بيفصل لوحده</summary><p>في حمل زيادة على الخط أو عزل بايظ في جهاز. قلل الأجهزة على نفس القاطع وجرب. لو بيفصل من غير حمل واضح، افصل الأجهزة واحد واحد لحد ما تلاقي المسبب. متغيّرش القاطع بواحد أكبر لوحدك، ده خطر حريق.</p></details>
+<small>⚠️ أي ريحة حرق أو شرارة أو ريحة غاز: افصل فوراً ومتجربش تصلح بنفسك. مشكلتك مش موجودة هنا؟ ابعتها صورة أو وصف من الفورم فوق، والاستشارة الفنية المبدئية مجانية.</small></div>
+<div class="card"><h2>نصايح صيانة توفّر عليك الأعطال</h2>
+<ul class="tips">
+<li><b>للمصنع والورشة:</b> اعمل جدول صيانة وقائية: تزييت وشد سيور وفحص كل أسبوع. الصيانة على الميعاد أرخص بكتير من وقفة إنتاج.</li>
+<li><b>اسمع الماكينة:</b> صوت جديد أو اهتزاز زيادة معناه إن في حاجة بدأت تبوظ. اللي بيتقبض بدري بيتصلح رخيص.</li>
+<li><b>سجّل كل عطل:</b> إمتى حصل وإيه سببه. أغلب الأعطال بتتكرر، والسجل بيخليك تمسكها من جذورها.</li>
+<li><b>في البيت:</b> نظّف فلتر التكييف كل شهر في الصيف، تبريد أحسن وكهربا أقل.</li>
+<li><b>راجع خراطيم الغسالة والسخان:</b> تسريب صغير متتجاهله بيعمل خسارة كبيرة.</li>
+<li><b>الحنفية اللي بتنقّط:</b> جلدتها رخيصة وسهلة، متستناش لما تبوظ خالص وتضطر تغيّر الحنفية كلها.</li>
+</ul></div>
 <div class="card"><h2>إزاي بنشتغل</h2>
 <div class="step"><b>١</b><span>صوّر العطل صورة أو فيديو (صوت الماكينة أو الجهاز مهم)، وابعته لنا على واتساب.</span></div>
-<div class="step"><b>٢</b><span>فريق الصيانة يبص ويرد عليك بسرعة.</span></div>
+<div class="step"><b>٢</b><span>لو الرد الجاهز مفادش، فريق الصيانة يبص على الصورة ويرد عليك برد مدروس.</span></div>
 <div class="step"><b>٣</b><span>لو العطل بسيط هنقولك تصلحه إزاي. لو لأ، هنبعتلك الدعم وخطة الصيانة والتكلفة.</span></div>
 <a class="btn" href="https://wa.me/201120509006?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B+Fix+It%D8%8C+%D8%B9%D9%86%D8%AF%D9%8A+%D9%85%D8%B4%D9%83%D9%84%D8%A9+%D9%88%D8%AF%D9%87+%D8%B5%D9%88%D8%B1%D8%A9+%D8%A3%D9%88+%D9%81%D9%8A%D8%AF%D9%8A%D9%88+%D9%84%D9%8A%D9%87%D8%A7%3A%0A%D9%86%D9%88%D8%B9+%D8%A7%D9%84%D9%85%D8%B4%D9%83%D9%84%D8%A9%3A%0A%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D9%86%D8%A9%3A">📷 ابعت العطل على واتساب</a>
 <small>بعد ما الزر يفتح واتساب، أرفق الصورة أو الفيديو واضغط إرسال.</small></div>
