@@ -14,34 +14,26 @@ h2{margin:0 0 10px;font-size:19px}
 .num{font-size:28px;font-weight:800;text-align:center;color:#0f766e;background:#e6f3f1;border-radius:12px;padding:12px;letter-spacing:1px;direction:ltr}
 button{width:100%;min-height:48px;border:1px solid #0f766e;background:#fff;color:#0f766e;border-radius:12px;font:inherit;font-weight:600;margin-top:10px}
 small{color:#5a6b68;display:block;margin-top:8px}
-.f label{display:block;font-weight:700;margin-top:12px}.f select,.f textarea{width:100%;font:inherit;padding:10px;border:1px solid #b7c6c3;border-radius:10px;background:#fff;margin-top:4px}.f textarea{min-height:96px}.f .btn{border:0;width:100%;cursor:pointer;color:#fff}.btn.mail{background:#0f766e;margin-top:10px}
-.tips{list-style:none;padding:0;margin:0}.tips li{background:#f4f7f6;border-radius:12px;padding:10px 12px;margin-top:8px;font-size:15px}
+.f label{display:block;font-weight:700;margin-top:12px}.f select,.f textarea,.f input{width:100%;font:inherit;padding:10px;border:1px solid #b7c6c3;border-radius:10px;background:#fff;margin-top:4px}.f textarea{min-height:96px}.f .btn{border:0;width:100%;cursor:pointer;color:#fff}
 </style></head><body>
 <header><h1>Fix It</h1><p>ماكينة واقفة؟ حاجة في البيت بايظة؟ صوّر العطل وابعته</p></header>
 <div class="w">
 <div class="card f"><h2>ابعت بيانات العطل</h2>
 <label for="c">تصنيف العطل</label><select id="c"><option value="">اختار...</option><option>أعطال ميكانيكية في مصنع</option><option>أعطال ميكانيكية في ورشة</option><option>سباكة</option><option>كهربا</option><option>تكييف</option><option>أجهزة منزلية</option><option>أخرى</option></select>
 <label for="g">المحافظة</label><select id="g"><option value="">اختار...</option><option>القاهرة</option><option>الجيزة</option><option>الإسكندرية</option><option>القليوبية</option><option>الشرقية</option><option>الدقهلية</option><option>الغربية</option><option>المنوفية</option><option>البحيرة</option><option>كفر الشيخ</option><option>دمياط</option><option>بورسعيد</option><option>الإسماعيلية</option><option>السويس</option><option>الفيوم</option><option>بني سويف</option><option>المنيا</option><option>أسيوط</option><option>سوهاج</option><option>قنا</option><option>الأقصر</option><option>أسوان</option><option>البحر الأحمر</option><option>الوادي الجديد</option><option>مطروح</option><option>شمال سيناء</option><option>جنوب سيناء</option><option>أخرى</option></select>
+<label for="b">ماركة وموديل الجهاز أو الماكينة</label><input id="b" type="text" placeholder="مثال: موتور ويج 15 حصان، غسالة سامسونج 8 كيلو">
 <label for="d">وصف العطل</label><textarea id="d" placeholder="إيه اللي بيحصل؟ من امتى؟ في صوت أو ريحة أو تسريب؟"></textarea>
+<label for="k">وسيلة التواصل (موبايل أو إيميل)</label><input id="k" type="text" placeholder="اللي تحب نرد عليك عليه">
 <button type="button" class="btn" id="e">✉️ ابعت بالإيميل</button>
-<small id="m">اختار التصنيف والمحافظة واكتب وصف العطل وابعت، وأرفق الصورة أو الفيديو مع الإيميل. هنرد عليك برد مدروس مخصوص لمشكلتك من فريق Fix It. الاستشارة الفنية المبدئية مجانية.</small>
+<small id="m">املأ البيانات وابعت بالإيميل، وأرفق الصورة أو الفيديو معاه. كل حالة بنحللها لوحدها وبنرد عليك برد مدروس من فريق Fix It. الاستشارة الفنية المبدئية مجانية.</small>
 <small>أو ابعت مباشرة على: <b dir="ltr">fixit.connect.eg@gmail.com</b></small></div>
-<script>function chk(){var c=document.getElementById('c').value,g=document.getElementById('g').value,d=document.getElementById('d').value.trim();if(!c||!g||!d){document.getElementById('m').textContent='من فضلك املأ التصنيف والمحافظة ووصف العطل.';return null}return{c:c,g:g,d:d}}
-document.getElementById('e').onclick=function(){var v=chk();if(!v)return;var t='أهلاً Fix It\nتصنيف العطل: '+v.c+'\nالمحافظة: '+v.g+'\nوصف العطل: '+v.d+'\n\n(أرفق صورة أو فيديو للعطل مع الإيميل)';location.href='mailto:fixit.connect.eg@gmail.com?subject='+encodeURIComponent('عطل جديد - Fix It: '+v.c)+'&body='+encodeURIComponent(t)}</script>
-<div class="card"><h2>نصايح صيانة توفّر عليك الأعطال</h2>
-<ul class="tips">
-<li><b>للمصنع والورشة:</b> اعمل جدول صيانة وقائية: تزييت وشد سيور وفحص كل أسبوع. الصيانة على الميعاد أرخص بكتير من وقفة إنتاج.</li>
-<li><b>اسمع الماكينة:</b> صوت جديد أو اهتزاز زيادة معناه إن في حاجة بدأت تبوظ. اللي بيتقبض بدري بيتصلح رخيص.</li>
-<li><b>سجّل كل عطل:</b> إمتى حصل وإيه سببه. أغلب الأعطال بتتكرر، والسجل بيخليك تمسكها من جذورها.</li>
-<li><b>في البيت:</b> نظّف فلتر التكييف كل شهر في الصيف، تبريد أحسن وكهربا أقل.</li>
-<li><b>راجع خراطيم الغسالة والسخان:</b> تسريب صغير متتجاهله بيعمل خسارة كبيرة.</li>
-<li><b>الحنفية اللي بتنقّط:</b> جلدتها رخيصة وسهلة، متستناش لما تبوظ خالص وتضطر تغيّر الحنفية كلها.</li>
-</ul></div>
+<script>function chk(){var c=document.getElementById('c').value,g=document.getElementById('g').value,b=document.getElementById('b').value.trim(),d=document.getElementById('d').value.trim(),k=document.getElementById('k').value.trim();if(!c||!g||!d||!k){document.getElementById('m').textContent='من فضلك املأ التصنيف والمحافظة ووصف العطل ووسيلة التواصل.';return null}return{c:c,g:g,b:b,d:d,k:k}}
+document.getElementById('e').onclick=function(){var v=chk();if(!v)return;var t='أهلاً Fix It\nتصنيف العطل: '+v.c+'\nالمحافظة: '+v.g+'\nماركة وموديل الجهاز: '+v.b+'\nوصف العطل: '+v.d+'\nوسيلة التواصل: '+v.k+'\n\n(أرفق صورة أو فيديو للعطل مع الإيميل)';location.href='mailto:fixit.connect.eg@gmail.com?subject='+encodeURIComponent('عطل جديد - Fix It: '+v.c)+'&body='+encodeURIComponent(t)}</script>
 <div class="card"><h2>إزاي بنشتغل</h2>
-<div class="step"><b>١</b><span>صوّر العطل صورة أو فيديو (صوت الماكينة أو الجهاز مهم)، وابعته لنا على الإيميل.</span></div>
-<div class="step"><b>٢</b><span>فريق الصيانة يبص على حالتك ويرد عليك برد مدروس مخصوص ليها.</span></div>
+<div class="step"><b>١</b><span>صوّر العطل صورة أو فيديو (صوت الماكينة أو الجهاز مهم)، وابعته لنا على الإيميل مع ماركة وموديل الجهاز.</span></div>
+<div class="step"><b>٢</b><span>كل حالة بتتحلل لوحدها: بنبحثها ونرد عليك بحلول كاملة من مصادر الشركة المصنّعة.</span></div>
 <div class="step"><b>٣</b><span>لو العطل بسيط هنقولك تصلحه إزاي. لو لأ، هنبعتلك الدعم وخطة الصيانة والتكلفة.</span></div>
-<a class="btn" href="mailto:fixit.connect.eg@gmail.com?subject=%D8%B9%D8%B7%D9%84%20%D8%AC%D8%AF%D9%8A%D8%AF%20-%20Fix%20It&body=%D9%86%D9%88%D8%B9%20%D8%A7%D9%84%D9%85%D8%B4%D9%83%D9%84%D8%A9%3A%0A%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D9%86%D8%A9%3A%0A%D9%88%D8%B5%D9%81%20%D8%A7%D9%84%D9%85%D8%B4%D9%83%D9%84%D8%A9%3A%0A%0A%28%D8%A3%D8%B1%D9%81%D9%82%20%D8%B5%D9%88%D8%B1%D8%A9%20%D8%A3%D9%88%20%D9%81%D9%8A%D8%AF%D9%8A%D9%88%20%D9%84%D9%84%D8%B9%D8%B7%D9%84%20%D9%85%D8%B9%20%D8%A7%D9%84%D8%A5%D9%8A%D9%85%D9%8A%D9%84%29">✉️ ابعت العطل بالإيميل</a>
+<a class="btn" href="mailto:fixit.connect.eg@gmail.com?subject=%D8%B9%D8%B7%D9%84%20%D8%AC%D8%AF%D9%8A%D8%AF%20-%20Fix%20It&body=%D9%86%D9%88%D8%B9%20%D8%A7%D9%84%D9%85%D8%B4%D9%83%D9%84%D8%A9%3A%0A%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D9%86%D8%A9%3A%0A%D9%85%D8%A7%D8%B1%D9%83%D8%A9%20%D9%88%D9%85%D9%88%D8%AF%D9%8A%D9%84%20%D8%A7%D9%84%D8%AC%D9%87%D8%A7%D8%B2%20%D8%A3%D9%88%20%D8%A7%D9%84%D9%85%D8%A7%D9%83%D9%8A%D9%86%D8%A9%3A%0A%D9%88%D8%B5%D9%81%20%D8%A7%D9%84%D9%85%D8%B4%D9%83%D9%84%D8%A9%3A%0A%D9%88%D8%B3%D9%8A%D9%84%D8%A9%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%28%D9%85%D9%88%D8%A8%D8%A7%D9%8A%D9%84%20%D8%A3%D9%88%20%D8%A5%D9%8A%D9%85%D9%8A%D9%84%29%3A%0A%0A%28%D8%A3%D8%B1%D9%81%D9%82%20%D8%B5%D9%88%D8%B1%D8%A9%20%D8%A3%D9%88%20%D9%81%D9%8A%D8%AF%D9%8A%D9%88%20%D9%84%D9%84%D8%B9%D8%B7%D9%84%20%D9%85%D8%B9%20%D8%A7%D9%84%D8%A5%D9%8A%D9%85%D9%8A%D9%84%29">✉️ ابعت العطل بالإيميل</a>
 <small>الزر بيفتح برنامج الإيميل عندك، أرفق الصورة أو الفيديو واضغط إرسال.</small></div>
 <div class="card"><h2>بنساعد في إيه</h2><p style="margin:0">أعطال ميكانيكية في المصانع والورش، صغيرة أو كبيرة: مضخات، جيربوكسات، موتورات، كومبروسورات، سيور وسلاسل، رولمان بلي، تسريب زيت، اهتزاز وسخونية، وأي حاجة بتوقف الإنتاج.</p></div>
 <div class="card"><h2>الصيانة المنزلية</h2><p style="margin:0">سباكة (حنفية بتنقّط، سخان، مواسير)، كهربا (فيش، مفتاح، فصل)، تكييف (مش بيبرّد، تنقيط، صيانة دورية)، وأجهزة البيت (غسالة، تلاجة، بوتجاز، مياه).</p></div>
